@@ -9,6 +9,9 @@ public interface IUserRepository
     Task<User?> GetByDeviceIdAsync(string deviceId);
     Task<User?> GetByIdAsync(int id);
     Task<User> CreateAsync(User user);
+    Task UpdateAsync(User user);
+    Task DeleteAsync(User user);
+    Task<List<User>> GetAllAsync();
     Task<bool> EmailExistsAsync(string email);
     Task<bool> UsernameExistsAsync(string username);
 }

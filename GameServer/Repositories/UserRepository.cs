@@ -29,6 +29,21 @@ public class UserRepository : IUserRepository
         return user;
     }
 
+    public async Task UpdateAsync(User user)
+    {
+        _context.Users.Update(user);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task DeleteAsync(User user)
+    {
+        _context.Users.Remove(user);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task<List<User>> GetAllAsync() =>
+        await _context.Users.Include(u => u.Player).OrderBy(u => u.Id).ToListAsync();
+
     public async Task<bool> EmailExistsAsync(string email) =>
         await _context.Users.AnyAsync(u => u.Email == email);
 
