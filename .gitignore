@@ -1,0 +1,14 @@
+
+# env file
+.env
+
+# build output
+bin/
+obj/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
