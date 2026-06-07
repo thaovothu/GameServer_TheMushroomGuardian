@@ -1,4 +1,6 @@
-  services:
+version: "3.9"
+
+services:
   postgres:
     image: postgres:17
     container_name: gameServer
@@ -19,7 +21,7 @@
     depends_on:
       - postgres
     ports:
-      - "5000:8080"
+      - "5001:8080"
     env_file:
       - .env
     environment:
